@@ -10,6 +10,8 @@
   "dependencies": {
     "async-validator": "^3.2.3",
     "core-js": "^3.4.4",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
