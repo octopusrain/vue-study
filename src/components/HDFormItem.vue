@@ -57,6 +57,8 @@
     position: relative;
     padding-bottom: 20px;
     .hd-label{
+      display: block;
+      box-sizing: border-box;
       font-size: 15px;
       color: rgb(74,74,74);
       line-height: 21px;

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-console */
 <template>
   <div class="hd-form">
     <slot></slot>
@@ -6,6 +8,7 @@
 
 <script>
   export default {
+    componentName: 'HDForm',
     provide(){
       return {
         form: this
@@ -27,11 +30,24 @@
         }).catch(()=>{
           cb(false)
         })
-      }
+      },
     },
+    mounted(){
+      this.$on('focus',(e)=> {
+        this.$emit('on-focus',e.target)
+      })
+      this.$on('blur',(e)=> {
+        this.$emit('on-blur',e.target)
+      })
+    }
   }
 </script>
 
 <style scoped>
-
+  .hd-form{
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
 </style>

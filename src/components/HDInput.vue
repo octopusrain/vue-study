@@ -1,6 +1,6 @@
 <template>
   <div class="hd-input">
-    <input :type="type" :value="value" @input="onInput" v-bind="$attrs" />
+    <input :type="type" :value="value" @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" />
   </div>
 </template>
 
@@ -29,6 +29,12 @@
         // 不直接用$parent，防止用户在中间加一层dom,就拿不到父组件
         // 用dispatch方法向上冒泡查找满足条件的对应的componentName
         this.dispatch('HDFormItem','validate',[this])
+      },
+      onFocus(e){
+        this.dispatch('HDForm','focus',[e])
+      },
+      onBlur(e){
+        this.dispatch('HDForm','blur',[e])
       }
     },
     mounted () {
